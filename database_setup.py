@@ -39,7 +39,7 @@ class Movie(Base):
 
     @property
     def serialize(self):
-        # return book data in serializable format
+        # return movie data in serializable format
         return {
             'id': self.id,
             'movieName': self.movieName,
