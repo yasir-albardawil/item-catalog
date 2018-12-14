@@ -13,7 +13,7 @@
 4.  Launch the Vagrant VM (`vagrant up`)
 5.  Log into Vagrant VM (`vagrant ssh`)
 6.  Navigate to  `cd/vagrant`  as instructed in terminal
-7.  The app imports requests which is not on this vm. Run sudo pip install requests
+7.  The app imports requests which is not on this vm. `Run sudo pip install requests`
 8.  Setup application database  `python /item-catalog/database_setup.py`
 9.  *Insert fake data  `python /item-catalog/add_movies.py`
 10.  Run application using  `python /item-catalog/application.py`
