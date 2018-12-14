@@ -17,10 +17,10 @@ import json
 import requests
 
 app = Flask(__name__)
+APPLICATION_NAME = "Movie Catalog"
 
 CLIENT_ID = json.loads(
     open('gp_client_secrets.json', 'r').read())['web']['client_id']
-APPLICATION_NAME = "Movie Catalog"
 
 # Connect to Database and create database session
 engine = create_engine('sqlite:///item_catalog.db')
@@ -178,8 +178,8 @@ def fbconnect():
           '%s&fields=name,id,email' % token
     h = httplib2.Http()
     result = h.request(url, 'GET')[1]
-    # print "url sent for API access:%s"% url
-    # print "API JSON result: %s" % result
+    # print("url sent for API access:%s"% url)
+    # print("API JSON result: %s" % result)
     data = json.loads(result)
     login_session['provider'] = 'facebook'
     login_session['name'] = data["name"]
@@ -255,25 +255,28 @@ def new_state_token():
     return state
 
 
+# Displays the whole movies and the genres.
 @app.route('/movies.JSON')
 def movies_json():
     movies = session.query(Movie).all()
     return jsonify(moives=[movie.serialize for movie in movies])
 
 
+# Displays all genres
 @app.route('/movies/genre/<string:genre>.json')
 def movie_genre_json(genre):
     movies = session.query(Movie).filter_by(genre=genre).all()
     return jsonify(movies=[movie.serialize for movie in movies])
 
 
+# Displays movies for a specific genre
 @app.route('/movies/genre/<string:genre>/<int:movie_id>.json')
 def movie_json(genre, movie_id):
     movie = session.query(Movie).filter_by(genre=genre, id=movie_id).first()
     return jsonify(movie=movie.serialize)
 
 
-# User Helper Functions
+# User helper functions
 def get_user_id(email):
     try:
         user = session.query(User).filter_by(email=email).one()
@@ -282,6 +285,7 @@ def get_user_id(email):
         return None
 
 
+# Create a new user
 def create_user(login_session):
     new_user = User(
         name=login_session['name'],
@@ -329,6 +333,7 @@ def movie_details(movie_name):
     )
 
 
+# Sort by movie genre
 @app.route('/genre/<string:genre>/')
 def sort_movies(genre):
     movies = session.query(Movie).filter_by(genre=genre).all()
@@ -343,6 +348,7 @@ def sort_movies(genre):
         login_session=login_session)
 
 
+# Add movie
 @app.route('/movies/new', methods=['GET', 'POST'])
 def add_movie():
     if request.method == 'POST':
@@ -367,6 +373,7 @@ def add_movie():
         return redirect('/')
 
 
+# Edit movie
 @app.route('/movie/<int:movie_id>/edit', methods=['GET', 'POST'])
 def edit_movie(movie_id):
     edited_movie = session.query(
