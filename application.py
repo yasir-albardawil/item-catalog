@@ -425,8 +425,7 @@ def delete_movie(movie_id):
 
 # Disconnect based on provider
 @app.route('/disconnect')
-def disconnect\
-                ():
+def disconnect():
     if 'provider' in login_session:
         if login_session['provider'] == 'google':
             gdisconnect()

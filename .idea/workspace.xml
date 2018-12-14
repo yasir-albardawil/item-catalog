@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8346ec60-6c04-4e9b-8745-826b50f55862" name="Default Changelist" comment="initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Yasir.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Yasir.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="8346ec60-6c04-4e9b-8745-826b50f55862" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
     </list>
@@ -45,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="443" column="26" selection-start-line="443" selection-start-column="26" selection-end-line="443" selection-end-column="26" />
+            <state relative-caret-position="53">
+              <caret line="427" column="14" selection-start-line="427" selection-start-column="14" selection-end-line="427" selection-end-column="14" />
               <folding>
                 <element signature="e#24#105#0" expanded="true" />
               </folding>
@@ -66,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/movie.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="264" selection-start-line="264" selection-end-line="264" />
+            <state relative-caret-position="231">
+              <caret line="261" lean-forward="true" selection-start-line="261" selection-end-line="261" />
               <folding>
                 <element signature="e#6360#6367#1" expanded="true" />
                 <element signature="e#9211#9218#1" expanded="true" />
@@ -89,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="304">
-              <caret line="227" column="34" selection-start-line="227" selection-start-column="17" selection-end-line="227" selection-end-column="34" />
+              <caret line="191" selection-start-line="191" selection-end-line="191" />
             </state>
           </provider>
         </entry>
@@ -123,13 +120,13 @@
       <find>book</find>
       <find>.JSON</find>
       <find>jsonify</find>
-      <find>print</find>
       <find>submit</find>
       <find>redire</find>
       <find>dis</find>
       <find>gdisconnect</find>
       <find>redirect</find>
       <find>sendTokenToServer</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -209,7 +206,7 @@
       <workItem from="1543651385632" duration="282000" />
       <workItem from="1544685020464" duration="2540000" />
       <workItem from="1544694331895" duration="2823000" />
-      <workItem from="1544770476677" duration="8686000" />
+      <workItem from="1544770476677" duration="9086000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1544686866547</created>
@@ -260,11 +257,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544780409644</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="initial commit">
+      <created>1544781585147</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1544781585147</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15116000" />
+    <option name="totallyTimeSpent" value="15516000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -376,37 +380,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="443" column="26" selection-start-line="443" selection-start-column="26" selection-end-line="443" selection-end-column="26" />
-          <folding>
-            <element signature="e#24#105#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gp_client_secrets.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
-          <caret line="227" column="34" selection-start-line="227" selection-start-column="17" selection-end-line="227" selection-end-column="34" />
+          <caret line="191" selection-start-line="191" selection-end-line="191" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/genre.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/movie.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="264" selection-start-line="264" selection-end-line="264" />
+        <state relative-caret-position="231">
+          <caret line="261" lean-forward="true" selection-start-line="261" selection-end-line="261" />
           <folding>
             <element signature="e#6360#6367#1" expanded="true" />
             <element signature="e#9211#9218#1" expanded="true" />
             <element signature="e#12824#12831#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="427" column="14" selection-start-line="427" selection-start-column="14" selection-end-line="427" selection-end-column="14" />
+          <folding>
+            <element signature="e#24#105#0" expanded="true" />
           </folding>
         </state>
       </provider>
