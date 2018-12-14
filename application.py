@@ -425,7 +425,8 @@ def delete_movie(movie_id):
 
 # Disconnect based on provider
 @app.route('/disconnect')
-def disconnect():
+def disconnect\
+                ():
     if 'provider' in login_session:
         if login_session['provider'] == 'google':
             gdisconnect()
@@ -440,7 +441,7 @@ def disconnect():
         del login_session['picture']
         del login_session['provider']
         flash("You have successfully been logged out.")
-        return redirect('')
+        return redirect('/movies')
     else:
         flash("You were not logged in")
         return redirect('')

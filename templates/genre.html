@@ -61,35 +61,6 @@
 			{% else %}
 			<a class="btn btn-light" href="{{url_for('disconnect')}}">Logout</a>
 			{% endif %}
-
-			<!-- The Modal -->
-			<div class="modal fade" id="myModal">
-				<div class="modal-dialog modal-dialog-centered">
-					<div class="modal-content">
-
-						<!-- Modal Header -->
-						<div class="modal-header">
-							<h4 class="modal-title">Login</h4>
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-						</div>
-
-						<!-- Modal body -->
-						<div class="modal-body">
-							<!-- GOOGLE PLUS SIGN IN-->
-							<div id="signinButton">
-								<span class="g-signin" data-scope="openid email" data-clientid="896036315700-7c017apvfn55m1f0sk1t3jedgg3vae9i.apps.googleusercontent.com" data-redirecturi="postmessage" data-accesstype="offline" data-cookiepolicy="single_host_origin" data-callback="signInCallback" data-approvalprompt="force">
-								</span>
-							</div>
-							<!--END GOOGLE PLUS SIGN IN -->
-						</div>
-						<!-- Modal footer -->
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						</div>
-
-					</div>
-				</div>
-			</div>
 		</div>
 	</nav>
 	<div class="container">
@@ -205,12 +176,9 @@
 	</div>
 
 	<script src="{{ url_for('static',filename = 'js/js.js') }}"></script>
-
-	<div id="result"></div>
 	<script>
 		function signInCallback(authResult) {
 			if (authResult['code']) {
-
 				// Hide the sign-in button now that the user is authorized
 				$('#signinButton').attr('style', 'display: none');
 
