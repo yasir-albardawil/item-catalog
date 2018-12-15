@@ -17,6 +17,7 @@
         <list>
           <option value="application.response" />
           <option value="application.xrange" />
+          <option value="DBAPI" />
         </list>
       </option>
     </inspection_tool>

@@ -128,7 +128,7 @@ def gconnect():
 
     user_id = get_user_id(data["email"])
     if not user_id:
-        user_id = create_user(login_session)
+        user_id = create_user()
     flash("Now logged in as %s" % login_session['name'])
 
     login_session['user_id'] = user_id
@@ -201,7 +201,7 @@ def fbconnect():
     # see if user exists, if it doesn't make a new one
     user_id = get_user_id(data["email"])
     if not user_id:
-        user_id = create_user(login_session)
+        user_id = create_user()
 
     login_session['user_id'] = user_id
     return jsonify(name=login_session['name'],
@@ -256,20 +256,20 @@ def new_state_token():
 
 
 # Displays the whole movies and the genres.
-@app.route('/movies.JSON')
+@app.route('/movies.json')
 def movies_json():
     movies = session.query(Movie).all()
     return jsonify(moives=[movie.serialize for movie in movies])
 
 
-# Displays all genres
+# Displays movies for a specific genre
 @app.route('/movies/genre/<string:genre>.json')
 def movie_genre_json(genre):
     movies = session.query(Movie).filter_by(genre=genre).all()
     return jsonify(movies=[movie.serialize for movie in movies])
 
 
-# Displays movies for a specific genre
+# Displays movies for a specific genre and movie id
 @app.route('/movies/genre/<string:genre>/<int:movie_id>.json')
 def movie_json(genre, movie_id):
     movie = session.query(Movie).filter_by(genre=genre, id=movie_id).first()
@@ -281,12 +281,12 @@ def get_user_id(email):
     try:
         user = session.query(User).filter_by(email=email).one()
         return user.id
-    except:
+    except DBAPI:
         return None
 
 
 # Create a new user
-def create_user(login_session):
+def create_user():
     new_user = User(
         name=login_session['name'],
         email=login_session['email'],
@@ -303,7 +303,7 @@ def get_user_id(email):
     try:
         user = session.query(User).filter_by(email=email).one()
         return user.id
-    except:
+    except DBAPI:
         return None
 
 
@@ -449,4 +449,4 @@ def disconnect():
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     app.debug = True
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=8000, threaded=False)

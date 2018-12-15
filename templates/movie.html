@@ -78,7 +78,7 @@
 		{% endif %}
 		{% endwith %}
 		<h1 class="mt-3">{{movie.movieName}} ({{movie.year}})</h1>
-		<span class="text-capitalize">{{movie.genre}} | </span><i class="fas fa-star fa-2x"></i> {{movie.rating}}
+		<span class="text-capitalize">{{movie.genre}} | </span><i class="fas fa-star"></i> {{movie.rating}}
 		<div class="mt-3">
 			<!-- Button trigger modal -->
 			{% if movie.user_id == login_session['user_id'] or login_session['name'] == 'Yasir Albardawil' %}
@@ -199,7 +199,7 @@
 							<label for="movie-genre" required>Movie genre</label>
 							<select class="form-control" name="movie-genre" required>
 								<option value="">--Please choose a genre--</option>
-								<option value="action" value="Action" {%if movie.genre=='ction' %}selected{%endif%}>Action</option>
+								<option value="action" value="Action" {%if movie.genre=='action' %}selected{%endif%}>Action</option>
 								<option value="adventure" {%if movie.genre=='adventure' %}selected{%endif%}>Adventure</option>
 								<option value="animation" {%if movie.genre=='animation' %}selected{%endif%}>Animation</option>
 								<option value="comedy" {%if movie.genre=='comedy' %}selected{%endif%}>Comedy</option>
@@ -208,7 +208,7 @@
 								<option value="fantasy" {%if movie.genre=='fantasy' %}selected{%endif%}>Fantasy</option>
 								<option value="historical" {%if movie.genre=='historical' %}selected{%endif%}>Historical</option>
 								<option value="horror" {%if movie.genre=='horror' %}selected{%endif%}>Horror</option>
-								<option value="mystery" {%if movie.genre=='yystery' %}selected{%endif%}>Mystery</option>
+								<option value="mystery" {%if movie.genre=='mystery' %}selected{%endif%}>Mystery</option>
 								<option value="romance" {%if movie.genre=='romance' %}selected{%endif%}>Romance</option>
 							</select>
 						</div>
@@ -275,11 +275,7 @@
 			selectEditYear.appendChild(opt);
 		}
 
-		selectEditYear.value = {
-			{
-				movie.year
-			}
-		};
+		selectEditYear.value = {{movie.year}};
 	</script>
 	<script>
 		function signInCallback(authResult) {

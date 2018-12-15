@@ -1,5 +1,5 @@
 var currentYear = new Date().getFullYear(),
-	min = 1800,
+	min = 1900,
 	max = currentYear + 2,
 	select = document.getElementById('year');
 
