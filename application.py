@@ -44,7 +44,6 @@ def gconnect():
 
     code = request.data
     try:
-
         # Upgrade the authorization code into a credentials object
 
         oauth_flow = flow_from_clientsecrets('gp_client_secrets.json',
@@ -298,15 +297,6 @@ def create_user():
     return user.id
 
 
-# noinspection PyBroadException
-def get_user_id(email):
-    try:
-        user = session.query(User).filter_by(email=email).one()
-        return user.id
-    except DBAPI:
-        return None
-
-
 # Show all movies
 @app.route('/')
 @app.route('/movies/')
@@ -323,7 +313,6 @@ def show_movies():
 @app.route('/movie/<string:movie_name>/')
 def movie_details(movie_name):
     movie = session.query(Movie).filter_by(movieName=movie_name).one()
-    get_user_id('')
     state = new_state_token()
     return render_template(
         'movie.html',
