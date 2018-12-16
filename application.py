@@ -5,7 +5,10 @@ from flask import Flask, render_template, request, redirect, \
 from flask import session as login_session
 from flask import make_response
 from sqlalchemy import create_engine, asc
+from sqlalchemy.exc import DBAPIError
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm.exc import NoResultFound
+
 from database_setup import Base, Movie, User
 import random
 import string
@@ -44,6 +47,7 @@ def gconnect():
 
     code = request.data
     try:
+
         # Upgrade the authorization code into a credentials object
 
         oauth_flow = flow_from_clientsecrets('gp_client_secrets.json',
@@ -275,16 +279,18 @@ def movie_json(genre, movie_id):
     return jsonify(movie=movie.serialize)
 
 
-# User helper functions
+# Get user id by email
 def get_user_id(email):
     try:
         user = session.query(User).filter_by(email=email).one()
         return user.id
-    except DBAPI:
+    except NoResultFound:
+        return None
+    except DBAPIError:
         return None
 
 
-# Create a new user
+# Create user
 def create_user():
     new_user = User(
         name=login_session['name'],
@@ -293,8 +299,7 @@ def create_user():
         provider=login_session['provider'])
     session.add(new_user)
     session.commit()
-    user = session.query(User).filter_by(email=login_session['email']).one()
-    return user.id
+    return new_user.id
 
 
 # Show all movies
@@ -313,6 +318,7 @@ def show_movies():
 @app.route('/movie/<string:movie_name>/')
 def movie_details(movie_name):
     movie = session.query(Movie).filter_by(movieName=movie_name).one()
+
     state = new_state_token()
     return render_template(
         'movie.html',
@@ -368,6 +374,7 @@ def edit_movie(movie_id):
     edited_movie = session.query(
         Movie).filter_by(id=movie_id).one()
     state = new_state_token()
+
     if request.method == 'POST':
         if request.form['movie-name']:
             edited_movie.movieName = request.form['movie-name']
