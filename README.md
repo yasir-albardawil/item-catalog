@@ -1,6 +1,6 @@
 
 # Item Catalog
-
+*A Udacity Full Stack Nanodegree Degree project*
 ## Prerequisites
 * [Python 3.7](https://www.python.org/)
 * [Vagrant](https://www.vagrantup.com/)
